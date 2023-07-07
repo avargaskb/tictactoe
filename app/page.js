@@ -4,7 +4,10 @@ import { useState } from 'react';
 export default function Home() {
 	const Square = ({ value, onSquareClick }) => {
 		return (
-			<button className="square" onClick={onSquareClick}>
+			<button
+				className="font-bold text-center border-2 border-white float-left leading-9 mr-[-1px] mt-[-1px] p-0 w-24 h-24 text-4xl"
+				onClick={onSquareClick}
+			>
 				{value}
 			</button>
 		);
@@ -66,7 +69,10 @@ export default function Home() {
 			return (
 				<div>
 					{squares.indexOf('X' || 'O') > -1 ? (
-						<button className="reset" onClick={handleReset}>
+						<button
+							className=" text-xl bg-orange-400 rounded-3xl p-4 hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-300"
+							onClick={handleReset}
+						>
 							{' '}
 							Restart Game!
 						</button>
@@ -88,28 +94,32 @@ export default function Home() {
 			);
 		};
 		return (
-			<div className="container">
-				<div className='text-4xl font-bold my-10'>Tic Tac Toe</div>
-				<>
-					<div className="row">
-						{renderSquare(0)}
-						{renderSquare(1)}
-						{renderSquare(2)}
+			<div className="min-h-screen bg-[url('/wood-bg.jpg')] bg-cover bg-center text-white">
+				<div className="grid justify-center pt-20 text-center  ">
+					<div className="text-3xl md:text-5xl font-bold my-10 ">
+						Tic Tac Toe
 					</div>
-					<div className="row">
-						{renderSquare(3)}
-						{renderSquare(4)}
-						{renderSquare(5)}
+					<>
+						<div>
+							{renderSquare(0)}
+							{renderSquare(1)}
+							{renderSquare(2)}
+						</div>
+						<div>
+							{renderSquare(3)}
+							{renderSquare(4)}
+							{renderSquare(5)}
+						</div>
+						<div>
+							{renderSquare(6)}
+							{renderSquare(7)}
+							{renderSquare(8)}
+						</div>
+					</>
+					<div className="mt-6 text-2xl font-bold">{status}</div>
+					<div className="mt-8 ">
+						<ResetButton />
 					</div>
-					<div className="row">
-						{renderSquare(6)}
-						{renderSquare(7)}
-						{renderSquare(8)}
-					</div>
-				</>
-				<div className="status">{status}</div>
-				<div className="restart">
-					<ResetButton />
 				</div>
 			</div>
 		);
